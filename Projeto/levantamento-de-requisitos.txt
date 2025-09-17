@@ -1,0 +1,33 @@
+Loja de Auto Peças
+Nome da empresa: Tio Miro Auto Peças
+Integrantes do grupo: Tiago, Luigi, Leonardo, Marvyn, Luiz Felipe
+
+Levantamento de Requisitos – Loja de Auto Peças Tio Miro
+
+1. Descrição da empresa:
+- A Tio Miro é uma loja de Auto Peças voltada para atender motoristas, mecânicos e oficinas locais. A empresa busca oferecer peças com preços acessíveis e atendimento rápido.
+
+2. Público-alvo:
+- Motoristas que precisam de peças de reposição.
+- Mecânicos que necessitam de peças.
+- Revendedores locais.
+
+3. Objetivo do projeto:
+Desenvolver um sistema que auxilie na gestão da loja, incluindo:
+- Cadastro e controle de estoque de peças.
+- Registro de vendas e orçamentos.
+- Atendimento online para consultas e pedidos.
+- Relatórios de desempenho e movimentação de estoque.
+
+4. Requisitos funcionais:
+- Permitir cadastro, edição e exclusão de peças no estoque.
+- Registrar vendas e emitir comprovantes.
+- Gerar relatórios de estoque e vendas.
+- Disponibilizar catálogo de produtos para clientes.
+- Permitir busca de peças por nome, código ou categoria.
+
+5. Requisitos não funcionais:
+- O sistema deve ser simples e de fácil utilização.
+- Deve estar disponível via web, acessível em computadores e dispositivos móveis.
+- Garantir a segurança dos dados cadastrados.
+- Sistema com tempo de resposta rápido e eficiente.
