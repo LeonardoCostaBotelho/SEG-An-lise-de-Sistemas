@@ -4,6 +4,10 @@ Integrantes do grupo: Tiago, Luigi, Leonardo, Marvyn, Luiz Felipe
 
 Levantamento de Requisitos – Loja de Auto Peças Tio Miro
 
+1° ETAPA:
+
+1 - Apresentação e coleta de dados:
+
 1. Descrição da empresa:
 - A Tio Miro é uma loja de Auto Peças voltada para atender motoristas, mecânicos e oficinas locais. A empresa busca oferecer peças com preços acessíveis e atendimento rápido.
 
@@ -31,3 +35,9 @@ Desenvolver um sistema que auxilie na gestão da loja, incluindo:
 - Deve estar disponível via web, acessível em computadores e dispositivos móveis.
 - Garantir a segurança dos dados cadastrados.
 - Sistema com tempo de resposta rápido e eficiente.
+
+2° ETAPA:
+
+1 - Tabelas:
+
+1. Tabela de Produt
