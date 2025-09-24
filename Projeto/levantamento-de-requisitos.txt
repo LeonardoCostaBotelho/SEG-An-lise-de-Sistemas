@@ -40,4 +40,38 @@ Desenvolver um sistema que auxilie na gestão da loja, incluindo:
 
 1 - Tabelas:
 
-1. Tabela de Produt
+1. Tabela de produtos:
+- O nome do produto (id_peca)
+- A quantidade do produto (quantidade)
+- O valor do produto (preco_unitario)
+- O número de cadastro do item (id_item)
+- O número de código de barras (id_venda)
+
+2. Tabela de pedidos (Fornecedores):
+- O número de cadastro da nota (id_nota)
+- O nome do fornecedor (id_fornecedor)
+- A data do pedido (data_nota)
+- O valor da nota (valor_nota)
+
+3. Tabela de vendas:
+- O número da venda (id_venda)
+- O nome do cliente (id_cliente)
+- A data da venda (data_venda)
+- O valor da compra  (valor_total)
+- O status da compra (status)
+
+4. Tabela para cadastrar/logar conta:
+ Cadastro:
+- Nome do cliente (id_cliente)
+- CPF/CNPJ do cliente (id_cpf)
+- Telefone do cliente (id_telefone)
+- Email do cliente (id_email)
+- Endereço do cliente (id_endereco)
+- Senha do cliente (id_senha)
+
+ Login:
+- CPF/CNPJ do cliente (id_cpf)
+- Senha do cliente (id_senha)
+
+5. Tabeça de Clientes:
+- O nome do cliente (id_cliente)
