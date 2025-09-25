@@ -14,7 +14,7 @@ Tabelas necessárias para o projeto, contando com quais colunas cada uma terá q
 2. Tabela de Login de Cliente:
 
 2.1 CPF ou CNPJ do Cliente - pk_cliente (Chave estrangeira) (PK)
-2.2 Data de nascimento do Cliente - data_cliente
+2.2 Senha do Cliente - senha_cliente
 
 3. Tabela de Produtos:
 
