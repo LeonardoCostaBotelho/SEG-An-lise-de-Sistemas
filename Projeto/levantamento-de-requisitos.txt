@@ -4,7 +4,9 @@ Integrantes do grupo: Tiago, Luigi, Leonardo, Marvyn, Luiz Felipe
 
 Levantamento de Requisitos – Loja de Auto Peças Tio Miro
 
+
 1° ETAPA:
+
 
 1 - Apresentação e coleta de dados:
 
@@ -36,7 +38,9 @@ Desenvolver um sistema que auxilie na gestão da loja, incluindo:
 - Garantir a segurança dos dados cadastrados.
 - Sistema com tempo de resposta rápido e eficiente.
 
+
 2° ETAPA:
+
 
 1 - Tabelas:
 
