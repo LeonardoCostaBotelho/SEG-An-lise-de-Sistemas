@@ -35,3 +35,11 @@ Tabelas necessárias para o projeto, contando com quais colunas cada uma terá q
 4.5 Quantidade comprada - quantidade_produto_vendido
 4.6 Valor total da venda - valor_total_venda
 4.7 Status da venda - status_venda
+
+5. Tabela de Pedidos(Fornecedores):
+
+5.1 ID da nota - id_nota (PK)
+5.2 Fornecedor - id_fornecedor
+5.3 Data da nota - data_nota
+5.4 Valor da nota - valor_nota
+5.5 Status da nota - status_nota
