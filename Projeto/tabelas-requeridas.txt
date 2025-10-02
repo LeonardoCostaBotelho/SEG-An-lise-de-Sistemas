@@ -4,17 +4,25 @@ Tabelas necessárias para o projeto, contando com quais colunas cada uma terá q
 1. Tabela de Cadastro de Cliente:
 
 1.1 Nome do Cliente - nome_cliente 
-1.2 CPF ou CNPJ do Cliente - pk_cliente (PK)
+1.2 CPF ou CNPJ do Cliente - cpf_cliente (PK)
 1.3 Telefone do Cliente - telefone_cliente
 1.4 Email do Cliente - email_cliente
 1.5 Endereço do Cliente - endereco_cliente
 1.6 Modelo do carro e ano do mesmo - carro_cliente
 1.7 Data de nascimento do Cliente - data_cliente
 
+Explicação: 
+
+- Cliente pediu uma tabela de cadastro que contenha os dados do cliente. 
+Esses dados deveriam ser o nome do cliente, o CPF dele, o telefone para contato, o Email para caso precise enviar algo pelo Email, endereço para auxiliar numa possível entrega, o modelo do carro e o ano dele (para melhor compreedimento do que será necessário) e a data de nascimento do cliente.
+
 2. Tabela de Login de Cliente:
 
-2.1 CPF ou CNPJ do Cliente - pk_cliente (Chave estrangeira) (PK)
+2.1 CPF ou CNPJ do Cliente - cpf_cliente (Chave estrangeira) (PK)
 2.2 Senha do Cliente - senha_cliente
+
+- Cliente pediu uma tabela de login, para o cliente logar na sua conta cadastrada.
+Os dados serão o CPF do cliente e uma senha, que será sua data de nascimento.
 
 3. Tabela de Produtos:
 
@@ -26,15 +34,21 @@ Tabelas necessárias para o projeto, contando com quais colunas cada uma terá q
 3.6 Status do produto - status_produto
 3.7 Observação do produto - obs_produto
 
+- Cliente pediu uma tabela de produtos para um cadastro e para conferir futuramente o estoque.
+Terá que ter o nome do produto, um id de cadastro (em ordem de qual foi cadastrado primeiro), quantidade do produto, o código de barras do produto, o preço do mesmo, o status indicando se ele está (ativo, inativo, fora de estoque) e por fim uma observação caso necessária.
+
 4. Tabela de Vendas:
 
 4.1 ID da venda - id_venda (PK)
-4.2 Cliente que comprou - pk_cliente (Chave estrangeira)
+4.2 Cliente que comprou - cpf_cliente (Chave estrangeira)
 4.3 Data da venda - data_venda
 4.4 Item comprado - cod_produto (Chave estrangeira)
 4.5 Quantidade comprada - quantidade_produto_vendido
 4.6 Valor total da venda - valor_total_venda
 4.7 Status da venda - status_venda
+
+- Cliente pediu uma tabela com as informações da venda, possibilitando depois uma impressão do comprovante que apareçam os dados pedidos.
+O id da venda (informando o número da venda, em ordem de qual venda foi feita primeira), o cliente que comprou (partindo do CPF), a data da venda, o item comprado (código de barras, pegando os dados do produto), quantidade comprada do mesmo, o valor total da venda e o status da venda (Paga, pendente ou deletada)
 
 5. Tabela de Pedidos(Fornecedores):
 
@@ -45,3 +59,6 @@ Tabelas necessárias para o projeto, contando com quais colunas cada uma terá q
 5.5 Status da nota - status_nota
 5.6 Quantidade do produto pedido - quantidade_produto_pedido
 5.7 Nome do produto pedido - nome_produto_pedido
+
+- Cliente pediu uma tabela para deixar armazenado os pedidos feitos à fornecedores
+O id da nota (informando o número da nota, em ordem de qual pedido foi feito primeiro), o fornecedor, a data da nota, o valor da nota, o status da nota (Paga, pendente, deletada), o nome do produto pedido e a quantidade pedida
