@@ -6,3 +6,4 @@ numero = nome
 idade = 40 
 
 print ("Ronald")
+print (nome)
