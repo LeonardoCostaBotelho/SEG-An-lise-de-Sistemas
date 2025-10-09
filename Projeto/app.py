@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect 
+from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -21,6 +21,23 @@ class CLIENTE(db.Model):
 def index():
     clientes = CLIENTE.query.all()
     return render_template('index.html' , clientes=clientes)
+
+@app.route('/create', methods=['POST'])
+def create_cliente():
+    nome = request.form['nome']
+    telefone = request.form['telefone']
+    email = request.form['email']
+    cpf = request.form['cpf']
+
+    novo_cliente = CLIENTE(nome=nome, telefone=telefone, email=email, cpf=cpf)
+
+    db.session.add(novo_cliente)
+    db.session.commit
+
+    return redirect('/')
+@app.route('/delete/<int:id_cliente>', method=['POST'])
+def delete_cliente(id_cliente):
+    cliente = CLIENTE.query.get(id_cliente)
 
 if __name__ == '__main__':
     with app.app_context():
