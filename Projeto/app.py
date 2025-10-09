@@ -20,9 +20,9 @@ class CLIENTE(db.Model):
 @app.route('/')
 def index():
     clientes = CLIENTE.query.all()
-    return render_template("index.html" , clientes=clientes)
+    return render_template('index.html' , clientes=clientes)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True, port=5153)
