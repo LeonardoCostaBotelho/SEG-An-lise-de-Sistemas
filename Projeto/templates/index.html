@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autopeças Tio Miro</title>
+</head>
+<body>
+    <h1> Autopeças Tio Miro </h1>
+    <h2>Cadastrar clientes</h2>
+
+<form action="/create", method="POST">
+    <input type="text" name="nome" placeholder="Digite o nome"> <br>
+    <input type="text" name="telefone" placeholder="Digite o telefone"> <br>
+    <input type="text" name="email" placeholder="Digite o email"> <br>
+    <input type="text" name="cpf" placeholder="Digite o CPF"> <br>
+    <button type="submit">Cadastrar cliente</button>
+</form>
+
+<h2> Clientes Cadastrados </h2>
+<ul>
+    {% for cliente in clientes %}
+        <li>
+            <form action='/update/{{ cliente.id_cliente }}', method="POST"></form>
+                <input type="text" name="nome" value="{{ cliente.nome }}">
+                <input type="text" name="telefone" value="{{ cliente.telefone }}">
+                <input type="text" name="email" value="{{ cliente.email }}">
+                <input type="text" name="cpf" value="{{ cliente.cpf }}">
+                <button type="submit">Atualizar</button>
+
+            <form action='/delete/<int:id_cliente>', method='POST'>
+                <button type="submit">Excluir</button>
+
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
