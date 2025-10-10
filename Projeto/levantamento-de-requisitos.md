@@ -1,0 +1,84 @@
+# Documentação do Projeto: Sistema de Gestão para uma Autopeças (Fase 1 - MVP)
+
+## I. Detalhes do Projeto
+
+| Detalhe | Valor |
+| :--- | :--- |
+| **Papel Assumido** | Analista de Sistemas |
+| **Cliente** | Autopeças Tio Miro |
+| **Fase do Projeto** | Mínimo Produto Viável (MVP) com Integridade de Dados |
+| **Foco Principal** | Gestão Unificada de Clientes, Estoque/Vendas, Fornecedores e Relatórios. |
+
+---
+
+## II. Escopo e Requisitos
+
+### Objetivo Principal
+
+O objetivo desta fase é criar um sistema que unifique a gestão de estoque e a venda de produtos em uma **única transação** (nota fiscal), garantindo a precisão do estoque através de automação.
+
+### Requisitos Funcionais (RF)
+
+| ID | Requisito |
+| :--- | :--- |
+| **RF001** | Gerenciar o Cadastro de Clientes, incluindo dados específicos do mesmo(nome, CPF, número de telefone, email, endereço, data de nascimento e o modelo do carro que possui). |
+| **RF002** | Gerenciar o Cadastro de Produtos e Fornecedores. |
+| **RF003** | Registrar a Entrada de Estoque por meio de Compras e Fornecedores. |
+| **RF004** | Gerar Relatórios básicos (Vendas Diárias e Serviços Mais Realizados). |
+
+### Requisitos Não Funcionais (RNF)
+
+| ID | Requisito |
+| :--- | :--- |
+| **RNF001** | **Integridade de Dados:** O banco de dados deve usar *CHECK Constraints* para garantir que preços e quantidades sejam sempre maiores que zero. |
+| **RNF002** | **Automação de Estoque:** O estoque deve ser atualizado automaticamente usando *Triggers* (Gatilhos) na Entrada de Compras e na Baixa de Vendas. |
+
+---
+
+## III. Modelo de Dados (Estrutura e Inteligência)
+
+A estrutura do banco de dados relacional (autopeças\_DB) é composta por 5 tabelas.
+
+### 1. Entidades Principais (Tabelas)
+
+| Módulo | Entidades (Tabelas) | Objetivo |
+| :--- | :--- | :--- |
+| **Pessoas** | `CLIENTE` e `FORNECEDOR` | Cadastro de base de clientes e fornecedores. |
+| **Logística** | `PRODUTO` | Gestão de itens vendáveis e entrada de estoque. |
+| **Transação** | `VENDA` e `PEDIDO_FORNECEDOR` | Registro de vendas, mostrando um relatório do que foi vendido e pra quem foi vendido, e um relatório de um pedido feito à um fornecedor. |
+
+---
+
+### Levantamento de Requisitos – Loja de Auto Peças Tio Miro
+
+1. Descrição da empresa:
+- A Tio Miro é uma loja de Auto Peças voltada para atender motoristas, mecânicos e oficinas locais. A empresa busca oferecer peças com preços acessíveis e atendimento rápido.
+
+
+2. Público-alvo:
+- Motoristas que precisam de peças de reposição.
+- Mecânicos que necessitam de peças.
+- Revendedores locais.
+
+
+3. Objetivo do projeto:
+Desenvolver um sistema que auxilie na gestão da loja, incluindo:
+- Cadastro e controle de estoque de peças.
+- Registro de vendas e orçamentos.
+- Atendimento online para consultas e pedidos.
+- Relatórios de desempenho e movimentação de estoque.
+
+
+4. Requisitos funcionais:
+- Permitir cadastro, edição e exclusão de peças no estoque.
+- Registrar vendas e emitir comprovantes.
+- Gerar relatórios de estoque e vendas.
+- Disponibilizar catálogo de produtos para clientes.
+- Permitir busca de peças por nome, código ou categoria.
+
+
+5. Requisitos não funcionais:
+- O sistema deve ser simples e de fácil utilização.
+- Deve estar disponível via web, acessível em computadores e dispositivos móveis.
+- Garantir a segurança dos dados cadastrados.
+- Sistema com tempo de resposta rápido e eficiente.

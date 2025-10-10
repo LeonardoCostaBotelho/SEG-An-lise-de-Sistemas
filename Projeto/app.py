@@ -5,7 +5,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tabela2.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///autopecas.db'
 db = SQLAlchemy(app)
 
 
