@@ -5,7 +5,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tabela.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tabela2.db'
 db = SQLAlchemy(app)
 
 
@@ -35,9 +35,29 @@ def create_cliente():
     db.session.commit
 
     return redirect('/')
-@app.route('/delete/<int:id_cliente>', method=['POST'])
+
+@app.route('/delete/<int:id_cliente>', methods = ['POST'])
 def delete_cliente(id_cliente):
-    cliente = CLIENTE.query.get(id_cliente)
+     cliente = CLIENTE.query.get(id_cliente)
+     if cliente:
+         db.session.delete(cliente)
+         db.session.commit()
+
+     return redirect('/')
+
+@app.route('/update/<int:id_cliente>', methods = ['POST'])
+def update_cliente(id_cliente):
+     cliente = CLIENTE.query.get(id_cliente)
+
+     if cliente:
+         cliente.nome = request.form['nome']
+         cliente.telefone = request.form['telefone']
+         cliente.email = request.form['email']
+         cliente.cpf = request.form['cpf']
+     db.session.commit()
+
+     return redirect('/')
+
 
 if __name__ == '__main__':
     with app.app_context():
