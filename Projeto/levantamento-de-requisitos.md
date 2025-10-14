@@ -59,9 +59,7 @@ A estrutura do banco de dados relacional (Autopeças\_DB) é composta por 5 tabe
 | **VIEW 1** | `VIEW_VENDAS_DIARIAS` | Agrega o total de vendas por data e forma de pagamento. |
 | **VIEW 2** | `VIEW_SERVICOS_POPULARES` | Conta a frequência de cada `SERVICO` concluído (vendido). |
 
-Loja de Auto Peças
-Nome da empresa: Tio Miro Auto Peças
-Integrantes do grupo: Tiago, Luigi, Leonardo, Marvyn, Luiz Felipe
+---
 
 Levantamento de Requisitos – Loja de Auto Peças Tio Miro
 
