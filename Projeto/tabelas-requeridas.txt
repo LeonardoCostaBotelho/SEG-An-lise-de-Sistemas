@@ -37,10 +37,11 @@ Terá que ter o nome do produto, um id de cadastro (em ordem de qual foi cadastr
 3.4 Item comprado - cod_produto (Chave estrangeira)
 3.5 Quantidade comprada - quantidade_produto_vendido
 3.6 Valor total da venda - valor_total_venda
-3.7 Status da venda - status_venda
+3.7 Forma de pagamento - pagamento_venda
+3.8 Status da venda - status_venda
 
 - Cliente pediu uma tabela com as informações da venda, possibilitando depois uma impressão do comprovante que apareçam os dados pedidos.
-O id da venda (informando o número da venda, em ordem de qual venda foi feita primeira), o cliente que comprou (partindo do CPF), a data da venda, o item comprado (código de barras, pegando os dados do produto), quantidade comprada do mesmo, o valor total da venda e o status da venda (Paga, pendente ou deletada)
+O id da venda (informando o número da venda, em ordem de qual venda foi feita primeira), o cliente que comprou (partindo do CPF), a data da venda, o item comprado (código de barras, pegando os dados do produto), quantidade comprada do mesmo, o valor total da venda, a forma de pagamento da venda (cartão, dinheiro, pix) e o status da venda (Paga, pendente ou deletada)
 
 4. Tabela de Pedidos(Fornecedores):
 
