@@ -61,10 +61,7 @@ A estrutura do banco de dados relacional (Autopeças\_DB) é composta por 5 tabe
 
 ---
 
-Levantamento de Requisitos – Loja de Auto Peças Tio Miro
-
-1 - Apresentação e coleta de dados: 
-
+### Levantamento de Requisitos – Loja de Auto Peças Tio Miro
 
 1. Descrição da empresa:
 - A Tio Miro é uma loja de Auto Peças voltada para atender motoristas, mecânicos e oficinas locais. A empresa busca oferecer peças com preços acessíveis e atendimento rápido.
