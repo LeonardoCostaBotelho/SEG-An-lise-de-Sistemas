@@ -37,27 +37,15 @@ O objetivo desta fase é criar um sistema que unifique a gestão de estoque e a 
 
 ## III. Modelo de Dados (Estrutura e Inteligência)
 
-A estrutura do banco de dados relacional (Autopeças\_DB) é composta por 5 tabelas.
+A estrutura do banco de dados relacional (autopeças\_DB) é composta por 5 tabelas.
 
 ### 1. Entidades Principais (Tabelas)
 
 | Módulo | Entidades (Tabelas) | Objetivo |
 | :--- | :--- | :--- |
-| **Pessoas/Pets** | `CLIENTE`, `PET`, `FUNCIONARIO`, `FORNECEDOR` | Cadastro de base de clientes, animais, pessoal interno e fornecedores. |
-| **Logística** | `PRODUTO`, `SERVICO`, `COMPRA`, `ITEM_COMPRA` | Gestão de itens vendáveis, precificação e entrada de estoque. |
-| **Operação** | `AGENDAMENTO` | Rastreamento de serviços futuros e em andamento. |
-| **Transação** | `VENDA`, `ITEM_VENDA_PRODUTO`, `ITEM_VENDA_SERVICO` | Registro da transação financeira e composição da nota fiscal única. |
-
-### 2. Automações e Otimizações (Inteligência de BD)
-
-| Objeto | Função | Descrição |
-| :--- | :--- | :--- |
-| **TRIGGER 1** | `trg_baixa_estoque_venda` | Reduz `estoque_atual` do `PRODUTO` sempre que um `ITEM_VENDA_PRODUTO` é inserido. |
-| **TRIGGER 2** | `trg_entrada_estoque_compra` | Aumenta `estoque_atual` do `PRODUTO` sempre que um `ITEM_COMPRA` é inserido. |
-| **CHECK** | `chk_preco_venda_positivo` | Garante que o `preco_venda` na tabela `PRODUTO` seja sempre maior que 0. |
-| **CHECK** | `chk_quantidade_vendida_positiva` | Garante que a `quantidade` vendida seja sempre maior que 0. |
-| **VIEW 1** | `VIEW_VENDAS_DIARIAS` | Agrega o total de vendas por data e forma de pagamento. |
-| **VIEW 2** | `VIEW_SERVICOS_POPULARES` | Conta a frequência de cada `SERVICO` concluído (vendido). |
+| **Pessoas** | `CLIENTE` e `FORNECEDOR` | Cadastro de base de clientes e fornecedores. |
+| **Logística** | `PRODUTO` | Gestão de itens vendáveis e entrada de estoque. |
+| **Transação** | `VENDA` e `COMPRA_FORNECEDOR` | Registro de vendas, mostrando um relatório do que foi vendido e pra quem foi vendido, e um relatório de um pedido feito à um fornecedor. |
 
 ---
 
