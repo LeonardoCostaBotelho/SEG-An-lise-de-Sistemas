@@ -45,7 +45,7 @@ A estrutura do banco de dados relacional (autopeças\_DB) é composta por 5 tabe
 | :--- | :--- | :--- |
 | **Pessoas** | `CLIENTE` e `FORNECEDOR` | Cadastro de base de clientes e fornecedores. |
 | **Logística** | `PRODUTO` | Gestão de itens vendáveis e entrada de estoque. |
-| **Transação** | `VENDA` e `COMPRA_FORNECEDOR` | Registro de vendas, mostrando um relatório do que foi vendido e pra quem foi vendido, e um relatório de um pedido feito à um fornecedor. |
+| **Transação** | `VENDA` e `PEDIDO_FORNECEDOR` | Registro de vendas, mostrando um relatório do que foi vendido e pra quem foi vendido, e um relatório de um pedido feito à um fornecedor. |
 
 ---
 
