@@ -1,13 +1,13 @@
-# Documentação do Projeto: Sistema de Gestão para Pet Shop (Fase 1 - MVP)
+# Documentação do Projeto: Sistema de Gestão para uma Autopeças (Fase 1 - MVP)
 
 ## I. Detalhes do Projeto
 
 | Detalhe | Valor |
 | :--- | :--- |
 | **Papel Assumido** | Analista de Sistemas |
-| **Cliente** | Pet Shop Au Au |
+| **Cliente** | Autopeças Tio Miro |
 | **Fase do Projeto** | Mínimo Produto Viável (MVP) com Integridade de Dados |
-| **Foco Principal** | Gestão Unificada de Clientes/Pets, Serviços/Agendamento, Estoque/Vendas e Relatórios. |
+| **Foco Principal** | Gestão Unificada de Clientes, Estoque/Vendas, Fornecedores e Relatórios. |
 
 ---
 
@@ -15,18 +15,16 @@
 
 ### Objetivo Principal
 
-O objetivo desta fase é criar um sistema que unifique a gestão de serviços e a venda de produtos em uma **única transação** (nota fiscal), garantindo a precisão do estoque através de automação.
+O objetivo desta fase é criar um sistema que unifique a gestão de estoque e a venda de produtos em uma **única transação** (nota fiscal), garantindo a precisão do estoque através de automação.
 
 ### Requisitos Funcionais (RF)
 
 | ID | Requisito |
 | :--- | :--- |
-| **RF001** | Gerenciar o Cadastro de Clientes e seus Pets, incluindo dados específicos do animal (espécie, raça, observações). |
-| **RF002** | Gerenciar o Cadastro de Produtos, Serviços, Fornecedores e Funcionários (responsáveis pelos serviços). |
-| **RF003** | Permitir o Agendamento de Serviços, vinculando o Pet, o Serviço e o Funcionário (executor). |
-| **RF004** | Registrar a Entrada de Estoque por meio de Compras e Fornecedores. |
-| **RF005** | Registrar Vendas de forma unificada, consolidando Produtos e Serviços em uma só nota. |
-| **RF006** | Gerar Relatórios básicos (Vendas Diárias e Serviços Mais Realizados). |
+| **RF001** | Gerenciar o Cadastro de Clientes, incluindo dados específicos do mesmo(nome, CPF, número de telefone, email, endereço, data de nascimento e o modelo do carro que possui). |
+| **RF002** | Gerenciar o Cadastro de Produtos e Fornecedores. |
+| **RF003** | Registrar a Entrada de Estoque por meio de Compras e Fornecedores. |
+| **RF004** | Gerar Relatórios básicos (Vendas Diárias e Serviços Mais Realizados). |
 
 ### Requisitos Não Funcionais (RNF)
 
@@ -39,7 +37,7 @@ O objetivo desta fase é criar um sistema que unifique a gestão de serviços e 
 
 ## III. Modelo de Dados (Estrutura e Inteligência)
 
-A estrutura do banco de dados relacional (PetShop\_DB) é composta por 13 tabelas, 2 Views e 4 automações/restrições.
+A estrutura do banco de dados relacional (Autopeças\_DB) é composta por 5 tabelas.
 
 ### 1. Entidades Principais (Tabelas)
 
@@ -60,3 +58,44 @@ A estrutura do banco de dados relacional (PetShop\_DB) é composta por 13 tabela
 | **CHECK** | `chk_quantidade_vendida_positiva` | Garante que a `quantidade` vendida seja sempre maior que 0. |
 | **VIEW 1** | `VIEW_VENDAS_DIARIAS` | Agrega o total de vendas por data e forma de pagamento. |
 | **VIEW 2** | `VIEW_SERVICOS_POPULARES` | Conta a frequência de cada `SERVICO` concluído (vendido). |
+
+Loja de Auto Peças
+Nome da empresa: Tio Miro Auto Peças
+Integrantes do grupo: Tiago, Luigi, Leonardo, Marvyn, Luiz Felipe
+
+Levantamento de Requisitos – Loja de Auto Peças Tio Miro
+
+1 - Apresentação e coleta de dados: 
+
+
+1. Descrição da empresa:
+- A Tio Miro é uma loja de Auto Peças voltada para atender motoristas, mecânicos e oficinas locais. A empresa busca oferecer peças com preços acessíveis e atendimento rápido.
+
+
+2. Público-alvo:
+- Motoristas que precisam de peças de reposição.
+- Mecânicos que necessitam de peças.
+- Revendedores locais.
+
+
+3. Objetivo do projeto:
+Desenvolver um sistema que auxilie na gestão da loja, incluindo:
+- Cadastro e controle de estoque de peças.
+- Registro de vendas e orçamentos.
+- Atendimento online para consultas e pedidos.
+- Relatórios de desempenho e movimentação de estoque.
+
+
+4. Requisitos funcionais:
+- Permitir cadastro, edição e exclusão de peças no estoque.
+- Registrar vendas e emitir comprovantes.
+- Gerar relatórios de estoque e vendas.
+- Disponibilizar catálogo de produtos para clientes.
+- Permitir busca de peças por nome, código ou categoria.
+
+
+5. Requisitos não funcionais:
+- O sistema deve ser simples e de fácil utilização.
+- Deve estar disponível via web, acessível em computadores e dispositivos móveis.
+- Garantir a segurança dos dados cadastrados.
+- Sistema com tempo de resposta rápido e eficiente.
