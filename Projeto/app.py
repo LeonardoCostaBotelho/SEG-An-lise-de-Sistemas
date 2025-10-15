@@ -61,9 +61,9 @@ def update_cliente(id_cliente):
          cliente.telefone = request.form['telefone']
          cliente.email = request.form['email']
          cliente.cpf = request.form['cpf']
-         endereco = request.form['endereco']
-         veiculo = request.form['veiculo']
-         nascimento = request.form['nascimento']
+         cliente.endereco = request.form['endereco']
+         cliente.veiculo = request.form['veiculo']
+         cliente.nascimento = request.form['nascimento']
      db.session.commit()
 
      return redirect('/')
