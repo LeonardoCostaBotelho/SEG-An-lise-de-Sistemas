@@ -14,6 +14,9 @@
     <input type="text" name="telefone" placeholder="Digite o telefone"> <br>
     <input type="text" name="email" placeholder="Digite o email"> <br>
     <input type="text" name="cpf" placeholder="Digite o CPF"> <br>
+    <input type="text" name="endereco" placeholder="Digite o endereço"> <br>
+    <input type="text" name="veiculo" placeholder="Digite o veículo"> <br>
+    <input type="text" name="nascimento" placeholder="Digite a data de nascimento"> <br>
     <button type="submit">Cadastrar cliente</button>
 </form>
 
@@ -26,7 +29,7 @@
                 <input type="text" name="telefone" value="{{ cliente.telefone }}">
                 <input type="text" name="email" value="{{ cliente.email }}">
                 <input type="text" name="cpf" value="{{ cliente.cpf }}">
-                <input type="text" name="endereço" value="{{ cliente.endereco }}">
+                <input type="text" name="endereco" value="{{ cliente.endereco }}">
                 <input type="text" name="veiculo" value="{{ cliente.veiculo }}">
                 <input type="text" name="nascimento" value="{{ cliente.nascimento }}">
                 <button type="submit">Atualizar</button>
