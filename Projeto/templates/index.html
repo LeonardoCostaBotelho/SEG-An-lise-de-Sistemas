@@ -8,27 +8,29 @@
     <style>
         body {
             font-family: "Segoe UI", Arial, sans-serif;
-            background: #f7f7f7;
-            color: #333;
+            background: #ffffff;
+            color: #000000;
             margin: 0;
             padding: 0;
         }
 
         h1, h2 {
             text-align: center;
-            color: #2c3e50;
+            color: #000000;
         }
 
         h1 {
-            background-color: #1e88e5;
+            background-image: url("/static/imagens/trabalho-curso-ads.png");
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 15px 0;
+            padding: 40px 0;
             margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
         }
 
         form {
-            background: white;
+            background: rgb(185, 185, 185);
             max-width: 600px;
             margin: 15px auto;
             padding: 20px;
@@ -36,7 +38,9 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        form input[type="text"] {
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="date"] {
             width: 95%;
             padding: 10px;
             margin: 8px 0;
@@ -46,14 +50,14 @@
             transition: 0.2s;
         }
 
-        form input[type="text"]:focus {
+        form input:focus {
             border-color: #1e88e5;
             box-shadow: 0 0 3px #90caf9;
             outline: none;
         }
 
         button {
-            background-color: #1e88e5;
+            background-color: #1975c5;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -65,14 +69,22 @@
         }
 
         button:hover {
-            background-color: #1565c0;
+            background-color: #0b4f9c;
+        }
+
+        /* Caixa de clientes cadastrados */
+        .clientes-box {
+            background: rgb(185, 185, 185);
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         ul {
             list-style: none;
             padding: 0;
-            max-width: 800px;
-            margin: 30px auto;
         }
 
         li {
@@ -90,7 +102,9 @@
             padding: 0;
         }
 
-        li input[type="text"] {
+        li input[type="text"],
+        li input[type="email"],
+        li input[type="date"] {
             width: 120px;
             padding: 6px;
             font-size: 14px;
@@ -115,36 +129,38 @@
     <h2>Cadastrar clientes</h2>
 
     <form action="/create" method="POST">
-        <input type="text" name="nome" placeholder="Digite o nome"> <br>
-        <input type="text" name="telefone" placeholder="Digite o telefone"> <br>
-        <input type="text" name="email" placeholder="Digite o email"> <br>
-        <input type="text" name="cpf" placeholder="Digite o CPF"> <br>
-        <input type="text" name="endereco" placeholder="Digite o endereço"> <br>
-        <input type="text" name="veiculo" placeholder="Digite o veículo"> <br>
-        <input type="text" name="nascimento" placeholder="Digite a data de nascimento"> <br>
+        <input type="text" name="nome" placeholder="Digite o nome do cliente" required> <br>
+        <input type="text" name="telefone" placeholder="Digite o telefone do cliente" required> <br>
+        <input type="email" name="email" placeholder="Digite o email do cliente" required> <br>
+        <input type="text" name="cpf" placeholder="Digite o CPF do cliente" required> <br>
+        <input type="text" name="endereco" placeholder="Digite o endereço do cliente"> <br>
+        <input type="text" name="veiculo" placeholder="Digite o veículo do cliente"> <br>
+        <input type="date" name="nascimento" placeholder="Digite a data de nascimento do cliente" required> <br>
         <button type="submit">Cadastrar cliente</button>
     </form>
 
-    <h2>Clientes Cadastrados</h2>
-    <ul>
-        {% for cliente in clientes %}
-            <li>
-                <form action="/update/{{ cliente.id_cliente }}" method="POST" style="display: inline;">
-                    <input type="text" name="nome" value="{{ cliente.nome }}">
-                    <input type="text" name="telefone" value="{{ cliente.telefone }}">
-                    <input type="text" name="email" value="{{ cliente.email }}">
-                    <input type="text" name="cpf" value="{{ cliente.cpf }}">
-                    <input type="text" name="endereco" value="{{ cliente.endereco }}">
-                    <input type="text" name="veiculo" value="{{ cliente.veiculo }}">
-                    <input type="text" name="nascimento" value="{{ cliente.nascimento }}">
-                    <button type="submit">Atualizar</button>
-                </form>
+    <div class="clientes-box">
+        <h2>Clientes Cadastrados</h2>
+        <ul>
+            {% for cliente in clientes %}
+                <li>
+                    <form action="/update/{{ cliente.id_cliente }}" method="POST" style="display: inline;">
+                        <input type="text" name="nome" value="{{ cliente.nome }}">
+                        <input type="text" name="telefone" value="{{ cliente.telefone }}">
+                        <input type="email" name="email" value="{{ cliente.email }}">
+                        <input type="text" name="cpf" value="{{ cliente.cpf }}">
+                        <input type="text" name="endereco" value="{{ cliente.endereco }}">
+                        <input type="text" name="veiculo" value="{{ cliente.veiculo }}">
+                        <input type="date" name="nascimento" value="{{ cliente.nascimento }}">
+                        <button type="submit">Atualizar</button>
+                    </form>
 
-                <form action="/delete/{{ cliente.id_cliente }}" method="POST" style="display: inline;">
-                    <button type="submit" class="delete-btn">Excluir</button>
-                </form>
-            </li>
-        {% endfor %}
-    </ul>
+                    <form action="/delete/{{ cliente.id_cliente }}" method="POST" style="display: inline;">
+                        <button type="submit" class="delete-btn">Excluir</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
