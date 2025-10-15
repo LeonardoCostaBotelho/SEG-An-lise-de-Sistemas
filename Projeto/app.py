@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///autopecas.db'
 db = SQLAlchemy(app)
 
-
+#-- Definição do Modelo
 class CLIENTE(db.Model):
     id_cliente = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(100), nullable=False)
@@ -20,11 +20,13 @@ class CLIENTE(db.Model):
     nascimento = db.Column(db.String(100))
     data_cadastro = db.Column(db.DateTime(), default=datetime.now)
 
+#-- Crud - Read (ler o cadastro)
 @app.route('/')
 def index():
     clientes = CLIENTE.query.all()
     return render_template('index.html' , clientes=clientes)
 
+#-- Crud - Create (criar o cadastro)
 @app.route('/create', methods=['POST'])
 def create_cliente():
     nome = request.form['nome']
@@ -43,6 +45,7 @@ def create_cliente():
 
     return redirect('/')
 
+#-- Crud - Delete (apagar o cadastro)
 @app.route('/delete/<int:id_cliente>', methods = ['POST'])
 def delete_cliente(id_cliente):
      cliente = CLIENTE.query.get(id_cliente)
@@ -52,6 +55,7 @@ def delete_cliente(id_cliente):
 
      return redirect('/')
 
+#-- Crud - Update (atualizar o cadastro)
 @app.route('/update/<int:id_cliente>', methods = ['POST'])
 def update_cliente(id_cliente):
      cliente = CLIENTE.query.get(id_cliente)
@@ -67,7 +71,6 @@ def update_cliente(id_cliente):
      db.session.commit()
 
      return redirect('/')
-
 
 if __name__ == '__main__':
     with app.app_context():
