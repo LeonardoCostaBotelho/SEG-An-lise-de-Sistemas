@@ -15,6 +15,9 @@ class CLIENTE(db.Model):
     telefone = db.Column(db.String(15), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True)
     cpf = db.Column(db.String(14), unique=True)
+    endereco = db.Column(db.String(100))
+    veiculo = db.Column(db.String(100))
+    nascimento = db.Column(db.String(100))
     data_cadastro = db.Column(db.DateTime(), default=datetime.now)
 
 @app.route('/')
@@ -28,11 +31,15 @@ def create_cliente():
     telefone = request.form['telefone']
     email = request.form['email']
     cpf = request.form['cpf']
+    endereco = request.form['endereco']
+    veiculo = request.form['veiculo']
+    nascimento = request.form['nascimento']
 
-    novo_cliente = CLIENTE(nome=nome, telefone=telefone, email=email, cpf=cpf)
+    novo_cliente = CLIENTE(nome=nome, telefone=telefone, email=email, cpf=cpf, endereco=endereco, veiculo=veiculo, nascimento=nascimento)
 
     db.session.add(novo_cliente)
-    db.session.commit
+
+    db.session.commit()
 
     return redirect('/')
 
@@ -54,6 +61,9 @@ def update_cliente(id_cliente):
          cliente.telefone = request.form['telefone']
          cliente.email = request.form['email']
          cliente.cpf = request.form['cpf']
+         endereco = request.form['endereco']
+         veiculo = request.form['veiculo']
+         nascimento = request.form['nascimento']
      db.session.commit()
 
      return redirect('/')
