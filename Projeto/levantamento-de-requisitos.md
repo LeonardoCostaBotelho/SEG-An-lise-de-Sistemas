@@ -82,3 +82,5 @@ Desenvolver um sistema que auxilie na gestão da loja, incluindo:
 - Deve estar disponível via web, acessível em computadores e dispositivos móveis.
 - Garantir a segurança dos dados cadastrados.
 - Sistema com tempo de resposta rápido e eficiente.
+
+print(f"entrei aqui {novo_cliente.nome}, {novo_cliente.telefone}, {novo_cliente.email}, {novo_cliente.cpf}" )
