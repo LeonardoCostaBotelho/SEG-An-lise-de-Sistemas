@@ -21,14 +21,18 @@
 <ul>
     {% for cliente in clientes %}
         <li>
-            <form action='/update/{{ cliente.id_cliente }}', method="POST"></form>
+            <form action='/update/{{ cliente.id_cliente }}', method="POST">
                 <input type="text" name="nome" value="{{ cliente.nome }}">
                 <input type="text" name="telefone" value="{{ cliente.telefone }}">
                 <input type="text" name="email" value="{{ cliente.email }}">
                 <input type="text" name="cpf" value="{{ cliente.cpf }}">
+                <input type="text" name="endereço" value="{{ cliente.endereco }}">
+                <input type="text" name="veiculo" value="{{ cliente.veiculo }}">
+                <input type="text" name="nascimento" value="{{ cliente.nascimento }}">
                 <button type="submit">Atualizar</button>
+            </form>
 
-            <form action='/delete/<int:id_cliente>', method='POST'>
+            <form action='/delete/{{ cliente.id_cliente }}', method='POST'>
                 <button type="submit">Excluir</button>
 
             </form>
