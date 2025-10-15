@@ -4,43 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autopeças Tio Miro</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h1 {
+            background-color: #1e88e5;
+            color: white;
+            padding: 15px 0;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        form {
+            background: white;
+            max-width: 600px;
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        form input[type="text"] {
+            width: 95%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        form input[type="text"]:focus {
+            border-color: #1e88e5;
+            box-shadow: 0 0 3px #90caf9;
+            outline: none;
+        }
+
+        button {
+            background-color: #1e88e5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background-color: #1565c0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+
+        li {
+            background: white;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        li form {
+            display: inline-block;
+            margin: 5px 0;
+            box-shadow: none;
+            padding: 0;
+        }
+
+        li input[type="text"] {
+            width: 120px;
+            padding: 6px;
+            font-size: 14px;
+        }
+
+        li button {
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+
+        .delete-btn {
+            background-color: #e53935;
+        }
+
+        .delete-btn:hover {
+            background-color: #b71c1c;
+        }
+    </style>
 </head>
 <body>
-    <h1> Autopeças Tio Miro </h1>
+    <h1>Autopeças Tio Miro</h1>
     <h2>Cadastrar clientes</h2>
 
-<form action="/create", method="POST">
-    <input type="text" name="nome" placeholder="Digite o nome"> <br>
-    <input type="text" name="telefone" placeholder="Digite o telefone"> <br>
-    <input type="text" name="email" placeholder="Digite o email"> <br>
-    <input type="text" name="cpf" placeholder="Digite o CPF"> <br>
-    <input type="text" name="endereco" placeholder="Digite o endereço"> <br>
-    <input type="text" name="veiculo" placeholder="Digite o veículo"> <br>
-    <input type="text" name="nascimento" placeholder="Digite a data de nascimento"> <br>
-    <button type="submit">Cadastrar cliente</button>
-</form>
+    <form action="/create" method="POST">
+        <input type="text" name="nome" placeholder="Digite o nome"> <br>
+        <input type="text" name="telefone" placeholder="Digite o telefone"> <br>
+        <input type="text" name="email" placeholder="Digite o email"> <br>
+        <input type="text" name="cpf" placeholder="Digite o CPF"> <br>
+        <input type="text" name="endereco" placeholder="Digite o endereço"> <br>
+        <input type="text" name="veiculo" placeholder="Digite o veículo"> <br>
+        <input type="text" name="nascimento" placeholder="Digite a data de nascimento"> <br>
+        <button type="submit">Cadastrar cliente</button>
+    </form>
 
-<h2> Clientes Cadastrados </h2>
-<ul>
-    {% for cliente in clientes %}
-        <li>
-            <form action='/update/{{ cliente.id_cliente }}', method="POST">
-                <input type="text" name="nome" value="{{ cliente.nome }}">
-                <input type="text" name="telefone" value="{{ cliente.telefone }}">
-                <input type="text" name="email" value="{{ cliente.email }}">
-                <input type="text" name="cpf" value="{{ cliente.cpf }}">
-                <input type="text" name="endereco" value="{{ cliente.endereco }}">
-                <input type="text" name="veiculo" value="{{ cliente.veiculo }}">
-                <input type="text" name="nascimento" value="{{ cliente.nascimento }}">
-                <button type="submit">Atualizar</button>
-            </form>
+    <h2>Clientes Cadastrados</h2>
+    <ul>
+        {% for cliente in clientes %}
+            <li>
+                <form action="/update/{{ cliente.id_cliente }}" method="POST" style="display: inline;">
+                    <input type="text" name="nome" value="{{ cliente.nome }}">
+                    <input type="text" name="telefone" value="{{ cliente.telefone }}">
+                    <input type="text" name="email" value="{{ cliente.email }}">
+                    <input type="text" name="cpf" value="{{ cliente.cpf }}">
+                    <input type="text" name="endereco" value="{{ cliente.endereco }}">
+                    <input type="text" name="veiculo" value="{{ cliente.veiculo }}">
+                    <input type="text" name="nascimento" value="{{ cliente.nascimento }}">
+                    <button type="submit">Atualizar</button>
+                </form>
 
-            <form action='/delete/{{ cliente.id_cliente }}', method='POST'>
-                <button type="submit">Excluir</button>
-
-            </form>
-        </li>
-    {% endfor %}
-</ul>
+                <form action="/delete/{{ cliente.id_cliente }}" method="POST" style="display: inline;">
+                    <button type="submit" class="delete-btn">Excluir</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
