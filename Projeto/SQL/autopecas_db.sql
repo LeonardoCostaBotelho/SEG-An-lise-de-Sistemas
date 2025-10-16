@@ -28,7 +28,7 @@ CREATE TABLE PRODUTO (
     quantidade_produto INT NOT NULL,
     preco_produto DECIMAL(10, 2) NOT NULL,
     status_produto VARCHAR(100) NOT NULL,
-    obs_produto VARCHAR(100),
+    obs_produto VARCHAR(100)
 	PRIMARY KEY(cod_produto AUTOINCREMENT)
 );
 
