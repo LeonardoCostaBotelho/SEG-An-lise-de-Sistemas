@@ -30,8 +30,8 @@ O objetivo desta fase é criar um sistema que unifique a gestão de estoque e a 
 
 | ID | Requisito |
 | :--- | :--- |
-| **RNF001** | **Integridade de Dados:** O banco de dados deve usar *CHECK Constraints* para garantir que preços e quantidades sejam sempre maiores que zero. |
-| **RNF002** | **Automação de Estoque:** O estoque deve ser atualizado automaticamente usando *Triggers* (Gatilhos) na Entrada de Compras e na Baixa de Vendas. |
+| **RNF001** | **Integridade de Dados:** O banco de dados deve ser competenten para assegurar os dados inseridos. |
+| **RNF002** | **Sistema eficiente:** O sistema deve ser eficiente e rápido, além de ser simples para facilitar sua utilização. |
 
 ---
 
