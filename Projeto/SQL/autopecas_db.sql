@@ -12,12 +12,12 @@ CREATE TABLE CLIENTE (
     nome_cliente VARCHAR(100) NOT NULL,
     telefone_cliente VARCHAR(15) UNIQUE NOT NULL,
     email_cliente VARCHAR(100) UNIQUE,
-    cpf_cliente VARCHAR(11) UNIQUE NOT NULL,
+    cpf_cliente INTEGER UNIQUE NOT NULL,
     endereco_cliente VARCHAR(100),
     veiculo_cliente VARCHAR(100),
     data_nascimento DATE NOT NULL,
     data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(id_cliente AUTOINCREMENT)
+    PRIMARY KEY(cpf_cliente AUTOINCREMENT)
 );
 
 -- Tabela de Produtos
