@@ -6,66 +6,77 @@
 -- 2. CRIAÇÃO DAS TABELAS BÁSICAS (ENTIDADES)
 ------------------------------------------
 
--- Tabela de Clientes
-CREATE TABLE CLIENTE (
-    id_cliente INTEGER NOT NULL,
-    nome_cliente VARCHAR(100) NOT NULL,
-    telefone_cliente VARCHAR(15) UNIQUE NOT NULL,
-    email_cliente VARCHAR(100) UNIQUE,
-    cpf_cliente INTEGER UNIQUE NOT NULL,
-    endereco_cliente VARCHAR(100),
-    veiculo_cliente VARCHAR(100),
-    data_nascimento DATE NOT NULL,
-    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(cpf_cliente AUTOINCREMENT)
-);
+-- Tabela de produtos
 
--- Tabela de Produtos
-CREATE TABLE PRODUTO (
-    id_produto INTEGER NOT NULL UNIQUE,
-    cod_produto INTEGER NOT NULL UNIQUE,
-    nome_produto VARCHAR(100) NOT NULL,
-    quantidade_produto INT NOT NULL,
-    preco_produto DECIMAL(10, 2) NOT NULL,
-    status_produto VARCHAR(100) NOT NULL,
-    obs_produto VARCHAR(100),
-	PRIMARY KEY(cod_produto AUTOINCREMENT)
-);
+CREATE TABLE Produtos 
+( 
+ nome_produto VARCHAR(n) NOT NULL,  
+ id_produto INT NOT NULL AUTO_INCREMENT,  
+ quantidade_produto INT NOT NULL DEFAULT '0',  
+ cod_produto INT PRIMARY KEY,  
+ preco_produto FLOAT NOT NULL,  
+ status_produto VARCHAR(n) NOT NULL DEFAULT 'Inativo',  
+ obs_produto VARCHAR(n),  
+ UNIQUE (id_produto)
+); 
 
--- Tabela de Fornecedores
-CREATE TABLE FORNECEDOR (
-    id_fornecedor INTEGER NOT NULL UNIQUE,
-    nome_fornecedor VARCHAR(100) NOT NULL,
-    cnpj_fornecedor INTEGER UNIQUE NOT NULL,
-    telefone_fornecedor VARCHAR(15) NOT NULL UNIQUE,
-    endereco_fornecedor VARCHAR(100),
-	PRIMARY KEY(cnpj_fornecedor AUTOINCREMENT)
-);
+-- Tabela de vendas
 
--- Tabela de Pedidos (Fornecedores)
-CREATE TABLE PEDIDOS_FORNECEDORES (
-    id_nota INTEGER NOT NULL UNIQUE,
-    cnpj_fornecedor INTEGER NOT NULL UNIQUE,
-    nome_produto_pedido VARCHAR(100) NOT NULL,
-    quantidade_produto_pedido INT NOT NULL DEFAULT 0,
-    valor_nota DECIMAL(10, 2) NOT NULL,
-    data_nota DATE NOT NULL,
-    status_nota VARCHAR(100) NOT NULL,
-	PRIMARY KEY(id_nota AUTOINCREMENT),
-    FOREIGN KEY (cnpj_fornecedor) REFERENCES FORNECEDOR(cnpj_fornecedor)
-);
+CREATE TABLE Vendas 
+( 
+ id_venda INT PRIMARY KEY NOT NULL AUTO_INCREMENT,  
+ data_venda DATE NOT NULL,  
+ quantidade_produto_vendido INT NOT NULL,  
+ valor_total_venda FLOAT NOT NULL,  
+ status_venda VARCHAR(n) NOT NULL,  
+ cod_produto INT NOT NULL,  
+ pagamento_venda VARCHAR(n) NOT NULL,  
+ id_cliente INT NOT NULL,  
+ UNIQUE (id_venda,cod_produto: FK,id_cliente: FK)
+); 
 
--- Tabela de Vendas (Transação Única)
-CREATE TABLE VENDAS (
-    id_venda INTEGER NOT NULL UNIQUE,
-    cod_produto VARCHAR(100) NOT NULL,
-    cpf_cliente INTEGER NOT NULL,
-    quantidade_produto_vendido INTEGER NOT NULL,
-    valor_total_venda DECIMAL(10, 2) NOT NULL,
-    data_venda DATETIME NOT NULL,
-    forma_pagamento VARCHAR(50) NOT NULL,
-    status_venda VARCHAR(50) NOT NULL, 
-	PRIMARY KEY(id_venda AUTOINCREMENT),
-    FOREIGN KEY (cpf_cliente) REFERENCES CLIENTE(cpf_cliente)
-    FOREIGN KEY (cod_produto) REFERENCES PRODUTO(cod_produto)
-);
+-- Tabela de pedidos dos fornecedores
+
+CREATE TABLE Pedidos(Fornecedores) 
+( 
+ id_nota INT PRIMARY KEY AUTO_INCREMENT,  
+ data_nota DATE NOT NULL,  
+ valor_nota FLOAT NOT NULL,  
+ status_nota VARCHAR(n) NOT NULL,  
+ quantidade_produto_pedido INT NOT NULL,  
+ nome_produto_pedido VARCHAR(n) NOT NULL,  
+ id_fornecedor INT NOT NULL,  
+ UNIQUE (id_fornecedor: FK)
+); 
+
+-- Tabela de fornecedores
+
+CREATE TABLE Fornecedores 
+( 
+ id_fornecedor INT PRIMARY KEY NOT NULL AUTO_INCREMENT,  
+ cnpj_fornecedor INT NOT NULL,  
+ nome_fornecedor VARCHAR(n) NOT NULL,  
+ telefone_fornecedor VARCHAR(n) NOT NULL,  
+ endereco_fornecedor VARCHAR(n),  
+ UNIQUE (id_fornecedor,cnpj_fornecedor,telefone_fornecedor)
+); 
+
+-- Tabela de cadastro de clientes
+
+CREATE TABLE Cliente 
+( 
+ id_cliente INT PRIMARY KEY AUTO_INCREMENT,  
+ nome_cliente VARCHAR(n) NOT NULL,  
+ cpf_cliente VARCHAR(n) NOT NULL,  
+ telefone_cliente VARCHAR(n) NOT NULL,  
+ email_cliente VARCHAR(n) NOT NULL,  
+ endereco_cliente VARCHAR(n),  
+ veiculo_cliente VARCHAR(n),  
+ nascimento_cliente DATE NOT NULL,  
+ data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
+ UNIQUE (cpf_cliente,telefone_cliente,email_cliente)
+); 
+
+ALTER TABLE Vendas ADD FOREIGN KEY(cod_produto) REFERENCES Produtos (cod_produto)
+ALTER TABLE Vendas ADD FOREIGN KEY(id_cliente) REFERENCES Cadastro de Cliente (id_cliente)
+ALTER TABLE Pedidos(Fornecedores) ADD FOREIGN KEY(id_fornecedor) REFERENCES Fornecedores (id_fornecedor)
