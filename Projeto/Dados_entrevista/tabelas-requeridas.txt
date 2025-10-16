@@ -3,18 +3,19 @@ Tabelas necessárias para o projeto, contando com quais colunas cada uma terá q
 
 1. Tabela de Cadastro de Cliente:
 
-1.1 Nome do Cliente - nome_cliente 
-1.2 CPF ou CNPJ do Cliente - cpf_cliente (PK)
-1.3 Telefone do Cliente - telefone_cliente
-1.4 Email do Cliente - email_cliente
-1.5 Endereço do Cliente - endereco_cliente
-1.6 Modelo do carro e ano do mesmo - carro_cliente
-1.7 Data de nascimento do Cliente - data_cliente
+1.1 Id do cliente - id_cliente (PK)
+1.2 Nome do Cliente - nome_cliente 
+1.3 CPF ou CNPJ do Cliente - cpf_cliente
+1.4 Telefone do Cliente - telefone_cliente
+1.5 Email do Cliente - email_cliente
+1.6 Endereço do Cliente - endereco_cliente
+1.7 Modelo do carro e ano do mesmo - veiculo_cliente
+1.8 Data de nascimento do Cliente - nascimento_cliente
 
 Explicação: 
 
 - Cliente pediu uma tabela de cadastro que contenha os dados do cliente. 
-Esses dados deveriam ser o nome do cliente, o CPF dele, o telefone para contato, o Email para caso precise enviar algo pelo Email, endereço para auxiliar numa possível entrega, o modelo do carro e o ano dele (para melhor compreedimento do que será necessário) e a data de nascimento do cliente.
+Esses dados deveriam ser o ID do cliente, nome do cliente, o CPF dele, o telefone para contato, o Email para caso precise enviar algo pelo Email, endereço para auxiliar numa possível entrega, o modelo do carro e o ano dele (para melhor compreedimento de qual peça será necessária) e a data de nascimento do cliente.
 
 2. Tabela de Produtos:
 
@@ -32,7 +33,7 @@ Terá que ter o nome do produto, um id de cadastro (em ordem de qual foi cadastr
 3. Tabela de Vendas:
 
 3.1 ID da venda - id_venda (PK)
-3.2 Cliente que comprou - cpf_cliente (Chave estrangeira)
+3.2 Cliente que comprou - id_cliente (Chave estrangeira)
 3.3 Data da venda - data_venda
 3.4 Item comprado - cod_produto (Chave estrangeira)
 3.5 Quantidade comprada - quantidade_produto_vendido
@@ -41,12 +42,12 @@ Terá que ter o nome do produto, um id de cadastro (em ordem de qual foi cadastr
 3.8 Status da venda - status_venda
 
 - Cliente pediu uma tabela com as informações da venda, possibilitando depois uma impressão do comprovante que apareçam os dados pedidos.
-O id da venda (informando o número da venda, em ordem de qual venda foi feita primeira), o cliente que comprou (partindo do CPF), a data da venda, o item comprado (código de barras, pegando os dados do produto), quantidade comprada do mesmo, o valor total da venda, a forma de pagamento da venda (cartão, dinheiro, pix) e o status da venda (Paga, pendente ou deletada)
+O id da venda (informando o número da venda, em ordem de qual venda foi feita primeira), o cliente que comprou (partindo do ID do mesmo), a data da venda, o item comprado (código de barras, pegando os dados do produto), quantidade comprada do mesmo, o valor total da venda, a forma de pagamento da venda (cartão, dinheiro, pix) e o status da venda (Paga, pendente ou deletada)
 
 4. Tabela de Pedidos(Fornecedores):
 
 4.1 ID da nota - id_nota (PK)
-4.2 CNPJ do Fornecedor - cnpj_fornecedor
+4.2 ID do Fornecedor - id_fornecedor (Chave estrangeira)
 4.3 Data da nota - data_nota
 4.4 Valor da nota - valor_nota
 4.5 Status da nota - status_nota
@@ -58,9 +59,9 @@ O id da nota (informando o número da nota, em ordem de qual pedido foi feito pr
 
 5. Tabela de Fornecedores:
 
-5.1 ID do Fornecedor -id_fornecedor 
+5.1 ID do Fornecedor -id_fornecedor (PK)
 5.2 Nome do Fornecedor - nome_fornecedor
-5.3 CNPJ do Fornecedor - CNPJ - cnpj_fornecedor (PK)
+5.3 CNPJ do Fornecedor - CNPJ - cnpj_fornecedor 
 5.4 Telefone do Fornecedor - telefone_fornecedor
 5.5 Endereço do Fornecedor - endereco_fornecedor
 
